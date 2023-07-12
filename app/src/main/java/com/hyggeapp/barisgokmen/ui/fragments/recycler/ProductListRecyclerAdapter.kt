@@ -7,12 +7,16 @@ import androidx.recyclerview.widget.ListAdapter
 import com.hyggeapp.barisgokmen.data.model.Product
 import com.hyggeapp.barisgokmen.databinding.ItemProductBinding
 
-class ProductListRecyclerAdapter : ListAdapter<Product, ProductListViewHolder>(ProductListDiffUtil()) {
+class ProductListRecyclerAdapter(
+    private val recylerViewItemClickListener: RecyclerViewItemClickListener<Product?>?
+) : ListAdapter<Product, ProductListViewHolder>(ProductListDiffUtil()) {
+
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductListViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = ItemProductBinding.inflate(inflater, parent, false)
-        return ProductListViewHolder(binding)
+        return ProductListViewHolder(binding,recylerViewItemClickListener)
     }
     override fun onBindViewHolder(holder: ProductListViewHolder, position: Int) {
         val item = getItem(position)

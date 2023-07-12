@@ -1,8 +1,6 @@
 package com.hyggeapp.barisgokmen.data.model
-
-
 import com.google.gson.annotations.SerializedName
-
+import java.io.Serializable
 
 data class Product(
 
@@ -29,4 +27,4 @@ data class Product(
 
 	@field:SerializedName("productName")
 	val productName: String? = null
-)
+) : Serializable

@@ -2,19 +2,18 @@ package com.hyggeapp.barisgokmen.ui.fragments
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import com.hyggeapp.barisgokmen.R
+import com.hyggeapp.barisgokmen.data.model.Product
 import com.hyggeapp.barisgokmen.databinding.FragmentProductListBinding
 import com.hyggeapp.barisgokmen.ui.fragments.base.BaseFragment
 import com.hyggeapp.barisgokmen.ui.fragments.recycler.ProductListRecyclerAdapter
+import com.hyggeapp.barisgokmen.ui.fragments.recycler.RecyclerViewItemClickListener
 import com.hyggeapp.barisgokmen.ui.viewmodels.ProductListViewModel
 
 class ProductListFragment : BaseFragment<FragmentProductListBinding>() {
-
 
     private lateinit var viewModel: ProductListViewModel
     private lateinit var adapter: ProductListRecyclerAdapter
@@ -28,19 +27,36 @@ class ProductListFragment : BaseFragment<FragmentProductListBinding>() {
     }
 
     override fun initialize() {
+        setViewModel()
+        setRecyclerView()
+        observeViewModel()
+    }
+    private fun setViewModel() {
         viewModel = ViewModelProvider(this).get(ProductListViewModel::class.java)
         viewModel.fetchProducts()
-        adapter = ProductListRecyclerAdapter()
-
-        binding?.rvProductlist?.layoutManager = GridLayoutManager(requireContext(), 2)
-        binding?.rvProductlist?.adapter = adapter
-
+    }
+    private fun observeViewModel() {
         viewModel.productList.observe(viewLifecycleOwner) { productList ->
             adapter.submitList(productList)
         }
-
-
     }
 
+    private val recylerViewItemClickListener = object : RecyclerViewItemClickListener<Product?> {
+        override fun onClick(item: Product?) {
+            navigateToProductDetailsFragment(item)
+        }
+    }
 
+    private fun navigateToProductDetailsFragment(product: Product?) {
+        val action = ProductListFragmentDirections.actionProductListFragmentToProductDetailFragment(
+            product
+        )
+        findNavController().navigate(action)
+    }
+
+    private fun setRecyclerView() {
+        adapter = ProductListRecyclerAdapter(recylerViewItemClickListener)
+        binding?.rvProductlist?.layoutManager = GridLayoutManager(requireContext(), 2)
+        binding?.rvProductlist?.adapter = adapter
+    }
 }
