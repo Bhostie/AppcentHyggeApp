@@ -12,11 +12,15 @@
         tools:layout="@layout/fragment_product_list" >
         <action
             android:id="@+id/action_productListFragment_to_productDetailFragment"
-            app:destination="@id/productDetailFragment" >
+            app:destination="@id/productDetailFragment"
+            app:enterAnim="@anim/nav_default_pop_enter_anim"
+            app:exitAnim="@anim/nav_default_pop_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim">
             <argument
                 android:name="clickedProduct"
                 app:argType="com.hyggeapp.barisgokmen.data.model.Product"
-                app:nullable="true"/>
+                app:nullable="true" />
         </action>
     </fragment>
     <fragment

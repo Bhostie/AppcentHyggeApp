@@ -2,6 +2,7 @@ package com.hyggeapp.barisgokmen.data.network
 
 import com.hyggeapp.barisgokmen.BuildConfig
 import com.hyggeapp.barisgokmen.data.network.service.ProductService
+import com.hyggeapp.barisgokmen.data.network.service.ShoppingCartService
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -13,6 +14,7 @@ object RetrofitManager {
 
     private lateinit var retrofit: Retrofit
     lateinit var productService: ProductService
+    lateinit var shoppingCartService: ShoppingCartService
     private val BASE_API_URL = "http://159.223.0.153/"
 
     init {
@@ -28,6 +30,7 @@ object RetrofitManager {
     }
     private fun bindServices() {
         productService = retrofit.create(ProductService::class.java)
+        shoppingCartService = retrofit.create(ShoppingCartService::class.java)
     }
     private fun getOkHttpClient(): OkHttpClient {
         val httpClient = OkHttpClient.Builder()

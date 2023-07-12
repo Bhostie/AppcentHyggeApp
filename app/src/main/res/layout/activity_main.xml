@@ -14,7 +14,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:padding="10dp"
-        android:background="#F0FFFB" >
+        android:background="@color/lightGreen" >
 
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/ib_back"

@@ -32,4 +32,5 @@ class ProductRepository(private val productApiService: ProductService) {
             }
         })
     }
+
 }
