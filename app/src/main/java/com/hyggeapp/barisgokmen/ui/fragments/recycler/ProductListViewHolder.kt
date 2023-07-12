@@ -7,17 +7,23 @@ import com.squareup.picasso.Picasso
 
 class ProductListViewHolder(
     private val binding: ItemProductBinding,
+    private val recylerViewItemClickListener: RecyclerViewItemClickListener<Product?>?
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(item: Product?) {
         binding.tvProductName.text = "${item?.productName}"
-        binding.tvNewPrice.text = "${item?.newPrice} TL"
-        binding.tvOldPrice.text = "${item?.oldPrice} TL"
+        binding.tvNewPrice.text = "$${item?.newPrice}"
+        binding.tvOldPrice.text = "$${item?.oldPrice}"
         binding.tvType.text = "${item?.type}"
         Picasso
             .get()
             .load(item?.productImage)
             .into(binding.ivProduct)
+
+        binding.root.setOnClickListener {
+            recylerViewItemClickListener?.onClick(item)
+        }
     }
+
 
 }

@@ -2,19 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.fragments.ProductListFragment">
+    android:layout_height="match_parent">
 
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_productlist"
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="10dp"
-        tools:listitem="@layout/item_product"/>
+        android:text="@string/hello_blank_fragment" />
 
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
+</androidx.constraintlayout.widget.ConstraintLayout>
