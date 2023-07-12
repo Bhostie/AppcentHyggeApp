@@ -23,7 +23,11 @@ android {
         dataBinding = true
     }
     buildTypes {
+        debug{
+            buildConfigField 'String', 'BASE_API_URL', "\"http://159.223.0.153/\""
+        }
         release {
+            buildConfigField 'String', 'BASE_API_URL', "\"http://159.223.0.153/\""
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
