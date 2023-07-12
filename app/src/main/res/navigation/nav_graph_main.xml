@@ -33,4 +33,9 @@
             app:argType="com.hyggeapp.barisgokmen.data.model.Product"
             app:nullable="true" />
     </fragment>
+    <fragment
+        android:id="@+id/shoppingCartFragment"
+        android:name="com.hyggeapp.barisgokmen.ui.fragments.ShoppingCartFragment"
+        android:label="fragment_shopping_cart"
+        tools:layout="@layout/fragment_shopping_cart" />
 </navigation>

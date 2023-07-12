@@ -50,6 +50,11 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding>() {
         binding?.btnAddToCart?.setOnClickListener {
             viewModel.addToCart(9, product?.id ?: 0)
         }
+        // TODO: "Added to Cart" popup
     }
-
+    private fun locationButtonListener() {
+        binding?.btnLocation?.setOnClickListener {
+        TODO("Not yet implemented")
+        }
+    }
 }

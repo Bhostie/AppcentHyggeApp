@@ -1,29 +1,26 @@
-package com.hyggeapp.barisgokmen.ui.fragments.recycler
+package com.hyggeapp.barisgokmen.ui.fragments.recycler.shoppingcart
 
 import androidx.recyclerview.widget.RecyclerView
 import com.hyggeapp.barisgokmen.data.model.Product
-import com.hyggeapp.barisgokmen.databinding.ItemProductBinding
+import com.hyggeapp.barisgokmen.databinding.ItemCartBinding
+import com.hyggeapp.barisgokmen.ui.fragments.recycler.RecyclerViewItemClickListener
 import com.squareup.picasso.Picasso
 
-class ProductListViewHolder(
-    private val binding: ItemProductBinding,
+class ShoppingCartViewHolder(
+    private val binding: ItemCartBinding,
     private val recylerViewItemClickListener: RecyclerViewItemClickListener<Product?>?
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(item: Product?) {
         binding.tvProductName.text = "${item?.productName}"
-        binding.tvNewPrice.text = "$${item?.newPrice}"
-        binding.tvOldPrice.text = "$${item?.oldPrice}"
-        binding.tvType.text = "${item?.type}"
+        binding.tvPrice.text = "$${item?.newPrice}"
         Picasso
             .get()
             .load(item?.productImage)
-            .into(binding.ivProduct)
+            .into(binding.ivProductImage)
 
-        binding.root.setOnClickListener {
+        binding.ibRemove.setOnClickListener {
             recylerViewItemClickListener?.onClick(item)
         }
     }
-
-
 }

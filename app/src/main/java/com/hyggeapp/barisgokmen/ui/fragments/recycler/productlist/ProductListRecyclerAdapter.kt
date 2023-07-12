@@ -1,4 +1,4 @@
-package com.hyggeapp.barisgokmen.ui.fragments.recycler
+package com.hyggeapp.barisgokmen.ui.fragments.recycler.productlist
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.hyggeapp.barisgokmen.data.model.Product
 import com.hyggeapp.barisgokmen.databinding.ItemProductBinding
+import com.hyggeapp.barisgokmen.ui.fragments.recycler.RecyclerViewItemClickListener
 
 class ProductListRecyclerAdapter(
     private val recylerViewItemClickListener: RecyclerViewItemClickListener<Product?>?

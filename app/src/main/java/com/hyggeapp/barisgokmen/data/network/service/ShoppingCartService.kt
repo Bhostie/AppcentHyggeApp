@@ -12,6 +12,11 @@ interface ShoppingCartService {
     fun getCart(@Path("id") id: Int): Call<BaseResponse<CartResponse>>?
 
     @POST("addtocart/{cart_id}/{product_id}")
-    fun addToCart(@Path("cart_id") cartId: Int, @Path("product_id") productId: Int): Call<BaseResponse<CartResponse>>?
+    fun addToCart(@Path("cart_id") cartId: Int, @Path("product_id") productId: Int?): Call<BaseResponse<CartResponse>>?
 
+    @GET("removeproduct/{cart_id}/{product_id}")
+    fun removeProduct(@Path("cart_id") cartId: Int, @Path("product_id") productId: Int?): Call<BaseResponse<CartResponse>>?
+
+    @GET("clearcart/{cart_id}")
+    fun clearCart(@Path("cart_id") cartId: Int): Call<BaseResponse<CartResponse>>?
 }

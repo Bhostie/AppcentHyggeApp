@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.hyggeapp.barisgokmen.data.model.Product
 import com.hyggeapp.barisgokmen.databinding.FragmentProductListBinding
 import com.hyggeapp.barisgokmen.ui.fragments.base.BaseFragment
-import com.hyggeapp.barisgokmen.ui.fragments.recycler.ProductListRecyclerAdapter
+import com.hyggeapp.barisgokmen.ui.fragments.recycler.productlist.ProductListRecyclerAdapter
 import com.hyggeapp.barisgokmen.ui.fragments.recycler.RecyclerViewItemClickListener
 import com.hyggeapp.barisgokmen.ui.viewmodels.ProductListViewModel
 
