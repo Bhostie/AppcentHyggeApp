@@ -7,26 +7,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.hyggeapp.barisgokmen.R
+import com.hyggeapp.barisgokmen.databinding.FragmentProductListBinding
+import com.hyggeapp.barisgokmen.ui.fragments.base.BaseFragment
+import com.hyggeapp.barisgokmen.ui.viewmodels.ProductListViewModel
 
-class ProductListFragment : Fragment() {
+class ProductListFragment : BaseFragment<FragmentProductListBinding>() {
 
-    companion object {
-        fun newInstance() = ProductListFragment()
-    }
-
-    private lateinit var viewModel: ProductListViewModel
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+    override fun setBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_product_list, container, false)
+    ): FragmentProductListBinding {
+        return FragmentProductListBinding.inflate(inflater, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(ProductListViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun initialize() {
+        val viewModel = ViewModelProvider(this).get(ProductListViewModel::class.java)
+
     }
+
 
 }

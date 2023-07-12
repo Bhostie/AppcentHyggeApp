@@ -1,4 +1,4 @@
-package com.hyggeapp.barisgokmen.ui.fragments
+package com.hyggeapp.barisgokmen.ui.viewmodels
 
 import androidx.lifecycle.ViewModel
 
