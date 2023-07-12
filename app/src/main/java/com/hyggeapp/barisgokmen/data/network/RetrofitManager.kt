@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit
 object RetrofitManager {
 
     private lateinit var retrofit: Retrofit
-    lateinit var newsService: ProductService
+    lateinit var productService: ProductService
     private val BASE_API_URL = "http://159.223.0.153/"
 
     init {
@@ -27,7 +27,7 @@ object RetrofitManager {
             .build()
     }
     private fun bindServices() {
-        newsService = retrofit.create(ProductService::class.java)
+        productService = retrofit.create(ProductService::class.java)
     }
     private fun getOkHttpClient(): OkHttpClient {
         val httpClient = OkHttpClient.Builder()
