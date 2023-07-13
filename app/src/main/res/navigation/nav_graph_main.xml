@@ -32,6 +32,9 @@
             android:name="clickedProduct"
             app:argType="com.hyggeapp.barisgokmen.data.model.Product"
             app:nullable="true" />
+        <action
+            android:id="@+id/action_productDetailFragment_to_productListFragment"
+            app:destination="@id/productListFragment" />
     </fragment>
     <fragment
         android:id="@+id/shoppingCartFragment"

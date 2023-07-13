@@ -5,7 +5,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.hyggeapp.barisgokmen.R
 import com.hyggeapp.barisgokmen.data.model.Product
 import com.hyggeapp.barisgokmen.databinding.FragmentProductDetailBinding
 import com.hyggeapp.barisgokmen.ui.fragments.base.BaseFragment
@@ -62,7 +64,10 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding>() {
         dialogHelper = DialogHelper()
     }
     private fun showDialog(){
-        val dialog = dialogHelper.createCustomDialog(requireContext(), "@string/added_to_cart")
+        val dialog = dialogHelper.createCustomDialog(requireContext(),
+                    R.string.added_to_cart,
+                    findNavController()
+        )
         dialog.show()
     }
 
