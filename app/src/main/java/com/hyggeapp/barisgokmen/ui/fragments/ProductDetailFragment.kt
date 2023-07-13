@@ -5,7 +5,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.hyggeapp.barisgokmen.R
 import com.hyggeapp.barisgokmen.data.model.Product
 import com.hyggeapp.barisgokmen.databinding.FragmentProductDetailBinding
 import com.hyggeapp.barisgokmen.ui.fragments.base.BaseFragment
@@ -20,8 +22,6 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding>() {
     private val args: ProductDetailFragmentArgs by navArgs()
     private var product: Product? = null
     private lateinit var dialogHelper: DialogHelper
-
-
 
     override fun setBinding(
         inflater: LayoutInflater,
@@ -51,7 +51,6 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding>() {
             viewModel.addToCart(9, product?.id ?: 0)
             showDialog()
         }
-        // TODO: "Added to Cart" popup
     }
     private fun locationButtonListener() {
         binding?.btnLocation?.setOnClickListener {
@@ -62,7 +61,11 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding>() {
         dialogHelper = DialogHelper()
     }
     private fun showDialog(){
-        val dialog = dialogHelper.createCustomDialog(requireContext(), "@string/added_to_cart")
+        val action = ProductDetailFragmentDirections.actionProductDetailFragmentToProductListFragment()
+        val dialog = dialogHelper.createCustomDialog(requireContext(),
+                    R.string.added_to_cart,
+                    findNavController(),
+                    action,)
         dialog.show()
     }
 

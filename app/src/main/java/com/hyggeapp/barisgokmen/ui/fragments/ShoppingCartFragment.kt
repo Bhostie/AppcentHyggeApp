@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.hyggeapp.barisgokmen.R
@@ -16,11 +17,13 @@ import com.hyggeapp.barisgokmen.ui.fragments.recycler.RecyclerViewItemClickListe
 import com.hyggeapp.barisgokmen.ui.fragments.recycler.productlist.ProductListRecyclerAdapter
 import com.hyggeapp.barisgokmen.ui.fragments.recycler.shoppingcart.ShoppingCartRecyclerAdapter
 import com.hyggeapp.barisgokmen.ui.viewmodels.ShoppingCartViewModel
+import com.hyggeapp.barisgokmen.util.DialogHelper
 
 class ShoppingCartFragment : BaseFragment<FragmentShoppingCartBinding>() {
 
     private lateinit var viewModel: ShoppingCartViewModel
     private lateinit var adapter: ShoppingCartRecyclerAdapter
+    private lateinit var dialogHelper: DialogHelper
 
     override fun setBinding(
         inflater: LayoutInflater,
@@ -35,6 +38,7 @@ class ShoppingCartFragment : BaseFragment<FragmentShoppingCartBinding>() {
         observeViewModel()
         setRecyclerView()
         buyButtonListener()
+        setDialog()
     }
     private fun setViewModel() {
         viewModel = ViewModelProvider(this).get(ShoppingCartViewModel::class.java)
@@ -59,7 +63,20 @@ class ShoppingCartFragment : BaseFragment<FragmentShoppingCartBinding>() {
     private fun buyButtonListener() {
         binding?.btnBuy?.setOnClickListener {
             viewModel.clearCart(9)
+            showDialog()
         }
+    }
+
+    private fun setDialog(){
+        dialogHelper = DialogHelper()
+    }
+    private fun showDialog(){
+        val action = ShoppingCartFragmentDirections.actionShoppingCartFragmentToProductListFragment()
+        val dialog = dialogHelper.createCustomDialog(requireContext(),
+            R.string.buy_success,
+            findNavController(),
+            action)
+        dialog.show()
     }
 
 
