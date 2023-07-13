@@ -34,11 +34,24 @@
             app:nullable="true" />
         <action
             android:id="@+id/action_productDetailFragment_to_productListFragment"
-            app:destination="@id/productListFragment" />
+            app:destination="@id/productListFragment"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/productListFragment"
+            />
+
     </fragment>
     <fragment
         android:id="@+id/shoppingCartFragment"
         android:name="com.hyggeapp.barisgokmen.ui.fragments.ShoppingCartFragment"
         android:label="fragment_shopping_cart"
-        tools:layout="@layout/fragment_shopping_cart" />
+        tools:layout="@layout/fragment_shopping_cart" >
+        <action
+            android:id="@+id/action_shoppingCartFragment_to_productListFragment"
+            app:destination="@id/productListFragment"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/productListFragment"/>
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.hyggeapp.barisgokmen.ui.activities.MainActivity" />
+    </fragment>
 </navigation>

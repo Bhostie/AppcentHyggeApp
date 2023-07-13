@@ -7,4 +7,5 @@
     <string name="buy">Buy</string>
     <string name="navigate_to_main">Anasayfaya Git</string>
     <string name="added_to_cart">Sepete Eklendi</string>
+    <string name="buy_success">Satın Alma Başarılı</string>
 </resources>

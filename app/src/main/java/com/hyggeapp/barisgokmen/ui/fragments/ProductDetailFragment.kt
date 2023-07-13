@@ -23,8 +23,6 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding>() {
     private var product: Product? = null
     private lateinit var dialogHelper: DialogHelper
 
-
-
     override fun setBinding(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -53,7 +51,6 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding>() {
             viewModel.addToCart(9, product?.id ?: 0)
             showDialog()
         }
-        // TODO: "Added to Cart" popup
     }
     private fun locationButtonListener() {
         binding?.btnLocation?.setOnClickListener {
@@ -64,10 +61,11 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding>() {
         dialogHelper = DialogHelper()
     }
     private fun showDialog(){
+        val action = ProductDetailFragmentDirections.actionProductDetailFragmentToProductListFragment()
         val dialog = dialogHelper.createCustomDialog(requireContext(),
                     R.string.added_to_cart,
-                    findNavController()
-        )
+                    findNavController(),
+                    action,)
         dialog.show()
     }
 

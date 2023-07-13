@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.navigation.NavController
+import androidx.navigation.NavDirections
 import com.hyggeapp.barisgokmen.R
 import com.hyggeapp.barisgokmen.ui.fragments.ProductDetailFragmentDirections
 
@@ -14,7 +15,8 @@ class DialogHelper {
     fun createCustomDialog(
         context: Context,
         message: Int,
-        navController: NavController
+        navController: NavController,
+        action: NavDirections
     ): AlertDialog {
 
         val dialogView = LayoutInflater.from(context).inflate(R.layout.custom_popup, null)
@@ -39,8 +41,6 @@ class DialogHelper {
         // Handle button click event
         button.setOnClickListener {
             dialog.dismiss()
-            val action = ProductDetailFragmentDirections
-                .actionProductDetailFragmentToProductListFragment()
             navController.navigate(action)
         }
 
