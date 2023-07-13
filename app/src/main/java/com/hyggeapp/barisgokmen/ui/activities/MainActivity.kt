@@ -19,6 +19,10 @@ class MainActivity : AppCompatActivity() {
             val navController = findNavController(R.id.fragment_container)
             navController.navigate(R.id.shoppingCartFragment)
         }
+        binding.ibBack.setOnClickListener {
+            val navController = findNavController(R.id.fragment_container)
+            navController.navigateUp()
+        }
     }
 
 
