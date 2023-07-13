@@ -27,9 +27,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="10dp"
+        android:maxLines="2"
+        android:ellipsize="end"
         tools:text="Night Eye Cream"
         android:textColor="@color/primaryText"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textStyle="bold"/>
 
     <androidx.appcompat.widget.AppCompatTextView

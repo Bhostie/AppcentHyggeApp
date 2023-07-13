@@ -36,6 +36,7 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding>() {
         setProductDetail()
         setViewModel()
         addToCartButtonListener()
+        locationButtonListener()
         setDialog()
     }
     private fun setViewModel() {
@@ -54,7 +55,9 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding>() {
     }
     private fun locationButtonListener() {
         binding?.btnLocation?.setOnClickListener {
-        TODO("Not yet implemented")
+            val action = ProductDetailFragmentDirections.actionProductDetailFragmentToLocationFragment()
+            findNavController().navigate(action)
+
         }
     }
     private fun setDialog(){

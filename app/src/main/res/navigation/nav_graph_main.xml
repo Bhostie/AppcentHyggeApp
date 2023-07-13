@@ -38,6 +38,9 @@
             app:popUpToInclusive="true"
             app:popUpTo="@id/productListFragment"
             />
+        <action
+            android:id="@+id/action_productDetailFragment_to_locationFragment"
+            app:destination="@id/locationFragment" />
 
     </fragment>
     <fragment
@@ -54,4 +57,8 @@
             android:name="android.support.PARENT_ACTIVITY"
             android:value="com.hyggeapp.barisgokmen.ui.activities.MainActivity" />
     </fragment>
+    <fragment
+        android:id="@+id/locationFragment"
+        android:name="LocationFragment"
+        android:label="LocationFragment" />
 </navigation>
