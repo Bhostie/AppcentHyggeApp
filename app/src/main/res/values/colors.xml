@@ -15,4 +15,5 @@
     <color name="pink">#FF66A0</color>
     <color name="pink_transparent">#33FF66A0</color>
     <color name="lightGray">#F6F7FB</color>
+    <color name="background_light">#FCFCFC</color>
 </resources>
