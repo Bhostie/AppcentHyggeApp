@@ -74,5 +74,4 @@ class LocationFragment : BaseFragment<FragmentLocationBinding>(), OnMapReadyCall
         return locations
     }
 
-
 }

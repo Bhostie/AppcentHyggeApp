@@ -12,7 +12,6 @@ class ProductListViewModel : ViewModel() {
     private val productRepository = ProductRepository(RetrofitManager.productService)
     val productList: LiveData<List<Product>?> = productRepository.productList
 
-
     fun fetchProducts() {
         productRepository.fetchProducts()
     }

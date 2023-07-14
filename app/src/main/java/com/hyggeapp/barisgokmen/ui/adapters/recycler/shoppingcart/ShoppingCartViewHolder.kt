@@ -1,9 +1,9 @@
-package com.hyggeapp.barisgokmen.ui.fragments.recycler.shoppingcart
+package com.hyggeapp.barisgokmen.ui.adapters.recycler.shoppingcart
 
 import androidx.recyclerview.widget.RecyclerView
 import com.hyggeapp.barisgokmen.data.model.Product
 import com.hyggeapp.barisgokmen.databinding.ItemCartBinding
-import com.hyggeapp.barisgokmen.ui.fragments.recycler.RecyclerViewItemClickListener
+import com.hyggeapp.barisgokmen.ui.adapters.recycler.RecyclerViewItemClickListener
 import com.squareup.picasso.Picasso
 
 class ShoppingCartViewHolder(

@@ -1,9 +1,9 @@
-package com.hyggeapp.barisgokmen.ui.fragments.recycler.productlist
+package com.hyggeapp.barisgokmen.ui.adapters.recycler.productlist
 
 import androidx.recyclerview.widget.RecyclerView
 import com.hyggeapp.barisgokmen.data.model.Product
 import com.hyggeapp.barisgokmen.databinding.ItemProductBinding
-import com.hyggeapp.barisgokmen.ui.fragments.recycler.RecyclerViewItemClickListener
+import com.hyggeapp.barisgokmen.ui.adapters.recycler.RecyclerViewItemClickListener
 import com.squareup.picasso.Picasso
 
 class ProductListViewHolder(
@@ -25,6 +25,4 @@ class ProductListViewHolder(
             recylerViewItemClickListener?.onClick(item)
         }
     }
-
-
 }

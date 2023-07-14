@@ -1,4 +1,4 @@
-package com.hyggeapp.barisgokmen.ui.fragments.recycler.shoppingcart
+package com.hyggeapp.barisgokmen.ui.adapters.recycler.shoppingcart
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.hyggeapp.barisgokmen.data.model.Product
 import com.hyggeapp.barisgokmen.databinding.ItemCartBinding
-import com.hyggeapp.barisgokmen.ui.fragments.recycler.RecyclerViewItemClickListener
+import com.hyggeapp.barisgokmen.ui.adapters.recycler.RecyclerViewItemClickListener
 
 class ShoppingCartRecyclerAdapter(
     private val recylerViewItemClickListener: RecyclerViewItemClickListener<Product?>?
@@ -23,7 +23,6 @@ class ShoppingCartRecyclerAdapter(
         val item = getItem(position)
         holder.bind(item)
     }
-
 
     class ShoppingCartDiffUtil : DiffUtil.ItemCallback<Product>() {
         override fun areItemsTheSame(oldItem: Product, newItem: Product): Boolean {

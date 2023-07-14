@@ -8,7 +8,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.navigation.NavController
 import androidx.navigation.NavDirections
 import com.hyggeapp.barisgokmen.R
-import com.hyggeapp.barisgokmen.ui.fragments.ProductDetailFragmentDirections
 
 class DialogHelper {
 
@@ -25,17 +24,13 @@ class DialogHelper {
         val dialog = dialogBuilder.create()
         dialog.setCancelable(false)
 
-        // Set transparent background
-        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
-
-        // Customize window attributes for dark and transparent background
         dialog.window?.apply {
             setDimAmount(0.6f)
+            setBackgroundDrawableResource(android.R.color.transparent)
         }
         // Find the message view inside the dialog
         val messageTextView = dialogView.findViewById<TextView>(R.id.tv_message)
         messageTextView.setText(message)
-
         // Find the button view inside the dialog
         val button = dialogView.findViewById<Button>(R.id.btn_back_to_main_menu)
         // Handle button click event
@@ -43,7 +38,6 @@ class DialogHelper {
             dialog.dismiss()
             navController.navigate(action)
         }
-
         return dialog
     }
 }

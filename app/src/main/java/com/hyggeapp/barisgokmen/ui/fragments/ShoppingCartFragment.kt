@@ -13,9 +13,9 @@ import com.hyggeapp.barisgokmen.R
 import com.hyggeapp.barisgokmen.data.model.Product
 import com.hyggeapp.barisgokmen.databinding.FragmentShoppingCartBinding
 import com.hyggeapp.barisgokmen.ui.fragments.base.BaseFragment
-import com.hyggeapp.barisgokmen.ui.fragments.recycler.RecyclerViewItemClickListener
-import com.hyggeapp.barisgokmen.ui.fragments.recycler.productlist.ProductListRecyclerAdapter
-import com.hyggeapp.barisgokmen.ui.fragments.recycler.shoppingcart.ShoppingCartRecyclerAdapter
+import com.hyggeapp.barisgokmen.ui.adapters.recycler.RecyclerViewItemClickListener
+import com.hyggeapp.barisgokmen.ui.adapters.recycler.productlist.ProductListRecyclerAdapter
+import com.hyggeapp.barisgokmen.ui.adapters.recycler.shoppingcart.ShoppingCartRecyclerAdapter
 import com.hyggeapp.barisgokmen.ui.viewmodels.ShoppingCartViewModel
 import com.hyggeapp.barisgokmen.util.DialogHelper
 
@@ -78,7 +78,4 @@ class ShoppingCartFragment : BaseFragment<FragmentShoppingCartBinding>() {
             action)
         dialog.show()
     }
-
-
-
 }

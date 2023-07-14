@@ -26,11 +26,9 @@ class ProductRepository(private val productApiService: ProductService) {
                     _productList.value = products
                 }
             }
-
             override fun onFailure(call: Call<BaseResponse<List<Product>>>, t: Throwable) {
                 Log.d("ProductRepository", "onFailure: ${t.message}")
             }
         })
     }
-
 }

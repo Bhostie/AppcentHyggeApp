@@ -71,7 +71,4 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding>() {
                     action,)
         dialog.show()
     }
-
-
-
 }
